@@ -1,0 +1,19 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build
+      run: clang++ text2table.cpp -o text2table
+    - name: Test
+      run: ./text2table tests/in/test1.txt out.txt && cmp out.txt tests/out/test1.txt
