@@ -87,7 +87,7 @@ int main(int argc, char* argv[]) {
                 }
                 charcounter = 0;
             }
-            outFile.put(ch);
+            outFile.put(static_cast<char>(ch));
             ++wordlen;
             ++charcounter;
         }
