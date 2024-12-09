@@ -1,0 +1,10 @@
+#!/bin/bash
+
+errors=0
+for thisfile in tests/in/*; do
+	filename="${thisfile##*/}"
+	./text2table $thisfile out.txt
+	cmp out.txt tests/out/$filename ||  ((errors+=1))
+done
+
+exit $errors
